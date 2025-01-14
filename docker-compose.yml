@@ -1,0 +1,27 @@
+version: '3'
+services:
+  db:
+    image: postgres:17
+    container_name: SD_Project
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres  
+      - POSTGRES_DB=IEEE_db
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - '5435:5432'
+  
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile # Dockerfile do Node.js
+    container_name: node_app
+    ports:
+      - '8080:8080'
+    depends_on:
+      - db # Garante que o banco será iniciado antes
+    environment:
+      - DATABASE_URL=postgres://postgres:postgres@db:5432/IEEE_db # URL de conexão com o banco
+volumes:
+  pgdata:
