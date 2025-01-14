@@ -83,7 +83,7 @@
 #### Endpoint: Deletar Filmes
 - **URL**: `/delete-movies/{id}`
 - **Método**: `DELETE`
-- **Descrição**: Remove um filme do sistema.
+- **Descrição**: Remove um Filme do sistema.
 
 **Entrada (Parâmetros de URL)**:
 - **id**: ID do Filme a ser removido.
