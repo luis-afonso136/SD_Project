@@ -44,7 +44,7 @@ Execute o comando abaixo para clonar o repositório do GitHub:
 git clone https://github.com/luis-afonso136/SD_Project
 
 Acesse o diretório do projeto:
-cd <nome-do-diretorio>
+cd SD_Project
 
 ---
 
