@@ -7,10 +7,10 @@ const { Pool } = require("pg");
 
 const pool = new Pool({
     user: "postgres",
-    host: "db", // Nome do serviço no docker-compose
+    host: "db", 
     database: "IEEE_db",
     password: "postgres",
-    port: 5432, // Porta padrão do PostgreSQL
+    port: 5432, 
 });
 
 app.get("/", (req, res) => {
@@ -30,21 +30,21 @@ async function createMoviesTable() {
         );
         `;
         await pool.query(query);
-        console.log("Movies table created");
+        console.log("Tabela de Filmes criada com sucesso");
     } catch (err) {
         console.error(err);
-        console.error("Movies table creation failed");
+        console.error("Erro ao criar a tabela de filmes");
     }
 }
 
 createMoviesTable();
 
 // Create new movie
-app.post("/movies", async (req, res) => {
+app.post("/create-movies", async (req, res) => {
     const { title, director, price } = req.body;
     console.log(req.body);
     if (!title || !director || !price) {
-        return res.status(400).send("One of the title, director, or price is missing in the data");
+        return res.status(400).json({ error: "Um dos campos está a faltar"});
     }
     try {
         const query = `
@@ -54,15 +54,15 @@ app.post("/movies", async (req, res) => {
         `;
         const values = [title, director, price];
         const result = await pool.query(query, values);
-        res.status(201).send({ message: "New movie created", movieId: result.rows[0].id });
+        res.status(201).send({ movieId: result.rows[0].id, message: "Novo Filme Criado" });
     } catch (err) {
         console.error(err);
-        res.status(500).send("Some error has occurred");
+        res.status(500).send("Algum erro ocorreu");
     }
 });
 
 // Get all movies
-app.get("/movies", async (req, res) => {
+app.get("/getAll-movies", async (req, res) => {
     try {
         const query = `SELECT * FROM movies;`;
         const { rows } = await pool.query(query);
@@ -73,14 +73,34 @@ app.get("/movies", async (req, res) => {
     }
 });
 
+// Get movie by ID
+app.get("/get-movies-byId/:id", async (req, res) => {
+    const { id } = req.params;
+
+    try {
+        const query = `SELECT * FROM movies WHERE id = $1;`;
+        const { rows } = await pool.query(query, [id]);
+
+        if (rows.length === 0) {
+            return res.status(404).json({ error: "Filme não encontrado" });
+        }
+
+        res.status(200).json(rows[0]);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: "Erro ao buscar o filme" });
+    }
+});
+
+
 // Update movie
-app.put("/movies/:id", async (req, res) => {
+app.put("/update-movies/:id", async (req, res) => {
     try {
         const { id } = req.params;
         const { title, director, price } = req.body;
 
         if (!title && !director && !price) {
-            return res.status(400).send("Provide at least one field (title, director, or price)");
+            return res.status(400).json({ error: "Escreva pelo menos um destes campos (title, director, or price)"});
         }
         const query = `
             UPDATE movies
@@ -93,30 +113,30 @@ app.put("/movies/:id", async (req, res) => {
         const { rows } = await pool.query(query, [title, director, price, id]);
 
         if (rows.length === 0) {
-            return res.status(404).send("Cannot find anything");
+            return res.status(404).json({ error: "Filme não encontrado"});
         }
         res.status(200).json(rows[0]);
     } catch (err) {
         console.error(err);
-        res.status(500).send("Some error has occurred");
+        res.status(500).send("Algum erro ocorreu");
     }
 });
 
 // Delete movie
-app.delete("/movies/:id", async (req, res) => {
+app.delete("/delete-movies/:id", async (req, res) => {
     try {
         const { id } = req.params;
         const query = `DELETE FROM movies WHERE id = $1 RETURNING *;`;
         const { rows } = await pool.query(query, [id]);
 
         if (rows.length === 0) {
-            return res.status(404).send("We have not found the movie");
+            return res.status(404).json({ error: "Filme não encontrado"});
         }
 
         res.status(200).json(rows[0]);
     } catch (err) {
         console.error(err);
-        res.status(500).send("Some error has occurred");
+        res.status(500).send("Algum erro ocorreu");
     }
 });
 
