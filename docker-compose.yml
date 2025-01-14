@@ -15,13 +15,13 @@ services:
   app:
     build:
       context: .
-      dockerfile: Dockerfile # Dockerfile do Node.js
+      dockerfile: Dockerfile 
     container_name: node_app
     ports:
       - '8080:8080'
     depends_on:
-      - db # Garante que o banco será iniciado antes
+      - db 
     environment:
-      - DATABASE_URL=postgres://postgres:postgres@db:5432/IEEE_db # URL de conexão com o banco
+      - DATABASE_URL=postgres://postgres:postgres@db:5432/IEEE_db 
 volumes:
   pgdata:

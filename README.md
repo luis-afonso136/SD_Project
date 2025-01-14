@@ -41,9 +41,13 @@ Para executar este sistema, você precisará dos seguintes itens instalados:
 ### Passo 1: Clonar o Repositório
 
 Execute o comando abaixo para clonar o repositório do GitHub:
+
+```json
 git clone https://github.com/luis-afonso136/SD_Project
 
 Acesse o diretório do projeto:
+
+```json
 cd SD_Project
 
 ---
