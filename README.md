@@ -42,7 +42,7 @@ Para executar este sistema, você precisará dos seguintes itens instalados:
 
 Execute o comando abaixo para clonar o repositório do GitHub:
 
-```bash
+```json
 git clone https://github.com/luis-afonso136/SD_Project
 ```
 
@@ -55,8 +55,9 @@ cd SD_Project
 ### Passo 2: Executar a Aplicação com Docker
 
 Certifique-se de que o Docker está em execução e utilize o comando abaixo para construir e executar a aplicação:
+```json
 docker-compose up
-
+```
 Isso iniciará a aplicação e ela estará disponível no endereço: http://localhost:8080.
 
 ---
