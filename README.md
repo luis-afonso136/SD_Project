@@ -42,14 +42,14 @@ Para executar este sistema, você precisará dos seguintes itens instalados:
 
 Execute o comando abaixo para clonar o repositório do GitHub:
 
-```json
+```bash
 git clone https://github.com/luis-afonso136/SD_Project
+```
 
 Acesse o diretório do projeto:
-
-```json
+```bash
 cd SD_Project
-
+```
 ---
 
 ### Passo 2: Executar a Aplicação com Docker
@@ -57,7 +57,7 @@ cd SD_Project
 Certifique-se de que o Docker está em execução e utilize o comando abaixo para construir e executar a aplicação:
 docker-compose up
 
-Isso iniciará a aplicação e ela estará disponível no endereço: http://localhost:<porta>.
+Isso iniciará a aplicação e ela estará disponível no endereço: http://localhost:8080.
 
 ---
 
@@ -70,8 +70,9 @@ A API pode ser testada utilizando ferramentas como o Postman. Todas as rotas e d
 ## Imagem Docker
 
 A imagem Docker da aplicação foi publicada no Docker Hub e pode ser baixada diretamente com o comando:
+```bash
 docker pull <seu-username>/<nome-da-imagem>
-
+```
 ---
 
 ## Estrutura do Repositório
