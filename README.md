@@ -43,7 +43,7 @@ Para executar este sistema, você precisará dos seguintes itens instalados:
 Execute o comando abaixo para clonar o repositório do GitHub:
 
 ```bash
-git clone https://github.com/luis-afonso136/SD_Project
+git clone https://github.com/luis-afonso136/SD_Project.git
 ```
 
 Acesse o diretório do projeto:
