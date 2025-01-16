@@ -99,7 +99,7 @@ docker pull luisafonso4420/mariaconceicao_luisafonso_sd_project:v1.0
 - API.md: Documentação detalhada das rotas da API.
 - docker-compose.yml: Configuração para executar a aplicação em containers Docker.
 - postman_collection.json: Arquivo de coleção do Postman para facilitar os testes.
-- src/: Código-fonte da aplicação.
+- index.js: Código-fonte da aplicação.
 
 ---
 
