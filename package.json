@@ -1,5 +1,5 @@
 {
-  "name": "sd-project",
+  "name": "api-rest-docker-postgrsql",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
