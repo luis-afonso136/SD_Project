@@ -10,7 +10,7 @@ Este projeto é uma aplicação distribuída que implementa uma API RESTful util
 - **Professor**: Wenderson Wanzeller
 - **Aluno**: Maria Conceição
 - **Aluno**: Luis Afonso
-- **Matrícula**: [Número de Matrícula]
+- **Matrícula**: 32180/29731
 - **Ano Letivo**: 2024/2025
 - **Instituição de Ensino**: IPVC ESTG
 
