@@ -54,7 +54,11 @@ cd SD_Project
 
 ### Passo 2: Executar a Aplicação com Docker
 
-Certifique-se de que o Docker está em execução e utilize o comando abaixo para construir e executar a aplicação:
+Certifique-se de que o Docker está em execução e utilize o comando abaixo para construir a aplicação:
+```bash
+docker-compose up
+```
+Depois disso vai parar o container usando Ctrl + C, e a seguir vai utilizar o mesmo comando para executar a aplicação:
 ```bash
 docker-compose up
 ```
@@ -66,6 +70,19 @@ Isso iniciará a aplicação e ela estará disponível no endereço: http://loca
 
 A API pode ser testada utilizando ferramentas como o Postman. Todas as rotas e detalhes de requisição estão documentados no arquivo API.md. Além disso, você pode importar o arquivo de coleção do Postman incluído no repositório para facilitar os testes.
 
+---
+### Passo 4: Verificare e ver a Base de Dados
+
+Para confirmar e ver os dados que estão a ser enviados, vamos utilizar o Adminer que estará disponivel no endereço: http://localhost:8081.
+
+Acessar o Adminer:
+```bash
+Motor de Base de dados: PostgreSQL
+Servidor: db
+Nome de utilizador: postgres
+Senha: postgres
+Base de dados: IEEE_db
+```
 ---
 
 ## Imagem Docker
