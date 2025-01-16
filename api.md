@@ -47,6 +47,7 @@
 	"director": "George Lucas",
 	"price": "20.00"
 }
+```
 - **Erro (404 Not Found)**:
 ```bash
 {
