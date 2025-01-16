@@ -111,6 +111,11 @@ Execute o comando abaixo para iniciar os serviços com o arquivo de produção:
 docker-compose -f docker-compose.production.yml up -d
 ```
 
+Certifique-se de que o Docker está em execução e utilize o comando abaixo para executar a aplicação:
+```bash
+docker-compose up
+```
+
 ---
 
 ## Estrutura do Repositório
