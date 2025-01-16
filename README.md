@@ -92,6 +92,25 @@ A imagem Docker da aplicação foi publicada no Docker Hub e pode ser baixada di
 docker pull luisafonso4420/mariaconceicao_luisafonso_sd_project:v1.0
 
 ```
+
+Usar Apenas Docker
+
+Execute o comando abaixo para clonar o repositório do GitHub:
+
+```bash
+git clone https://github.com/luis-afonso136/SD_Project.git
+```
+
+Acesse o diretório do projeto:
+```bash
+cd SD_Project
+```
+
+Execute o comando abaixo para iniciar os serviços com o arquivo de produção:
+```bash
+docker-compose -f docker-compose.production.yml up -d
+```
+
 ---
 
 ## Estrutura do Repositório
