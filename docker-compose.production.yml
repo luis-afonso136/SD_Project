@@ -1,0 +1,34 @@
+version: '3'
+services:
+  db:
+    image: postgres:17
+    container_name: SD_Project
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres  
+      - POSTGRES_DB=IEEE_db
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - '5435:5432'
+
+  app:
+    image: luisafonso4420/mariaconceicao_luisafonso_sd_project:v1.0
+    container_name: node_app
+    ports:
+      - '8080:8080'
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=postgres://postgres:postgres@db:5432/IEEE_db 
+
+  adminer:
+    image: adminer
+    container_name: adminer
+    ports:
+      - '8081:8080'
+    depends_on:
+      - db
+
+volumes:
+  pgdata:
