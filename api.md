@@ -6,11 +6,13 @@
 - **Descrição**: Este endpoint permite criar um novo filme no sistema.
 
 **Entrada (Request Body)**:
+```bash
 {
   "title": "Star Wars",
   "director": "George Lucas",
   "price": "20"
 }
+```
 
 **Saída (Response)**:
 - **Sucesso (201 Created)**:
