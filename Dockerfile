@@ -5,8 +5,8 @@ FROM node:18-alpine
 WORKDIR /app
 
 # Copiar os arquivos da aplicação
-COPY package*.json ./
-COPY index.js ./
+COPY package*.json ./ 
+COPY index.js ./ 
 
 # Instalar dependências
 RUN npm install

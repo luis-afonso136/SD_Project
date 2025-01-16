@@ -5,7 +5,7 @@ services:
     container_name: SD_Project
     environment:
       - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres  
+      - POSTGRES_PASSWORD=postgres
       - POSTGRES_DB=IEEE_db
     volumes:
       - pgdata:/var/lib/postgresql/data
@@ -15,13 +15,14 @@ services:
   app:
     build:
       context: .
-      dockerfile: Dockerfile 
+      dockerfile: Dockerfile
     container_name: node_app
     ports:
       - '8080:8080'
     depends_on:
-      - db 
+      - db
     environment:
-      - DATABASE_URL=postgres://postgres:postgres@db:5432/IEEE_db 
+      - DATABASE_URL=postgres://postgres:postgres@db:5432/IEEE_db
+
 volumes:
   pgdata:
