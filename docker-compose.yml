@@ -23,5 +23,14 @@ services:
       - db 
     environment:
       - DATABASE_URL=postgres://postgres:postgres@db:5432/IEEE_db 
+
+  adminer:
+    image: adminer
+    container_name: adminer
+    ports:
+      - '8081:8080'
+    depends_on:
+      - db
+
 volumes:
   pgdata:
