@@ -72,7 +72,8 @@ A API pode ser testada utilizando ferramentas como o Postman. Todas as rotas e d
 
 A imagem Docker da aplicação foi publicada no Docker Hub e pode ser baixada diretamente com o comando:
 ```bash
-docker pull <seu-username>/<nome-da-imagem>
+docker pull luisafonso4420/mariaconceicao_luisafonso_sd_project:v1.0
+
 ```
 ---
 
